@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>İletişim Formu</title>
+    <link rel="stylesheet" href="css/style3.css" />
+    <link rel="stylesheet" href="css/style.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css"
+      integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <style>
+      body {
+        background-color: #d4adfc;
+      }
+      .container {
+        background-color: aliceblue;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <input type="checkbox" id="toggler" />
+      <label for="toggler" class="fas fa-bars"></label>
+      <a href="#" class="logo"><span>MY BLOG</span> </a>
+      <nav class="navbar">
+        <a href="index.html">Home</a>
+        <a href="index.html#about">About</a>
+        <a href="mycity.html">My City</a>
+        <a href="api.html">My İnterest</a>
+        <a href="contact.html">Contact</a>
+      </nav>
+      <div class="icons">
+        <a href="#" class="fas fa-user"></a>
+      </div>
+    </header>
+    <div id="app">
+      <div class="container">
+        <h1>İletişim Formu</h1>
+        <form
+          id="form-contact"
+          action="goster.php"
+          method="post"
+          @submit.prevent="submitForm"
+        >
+          <div class="form-group">
+            <label for="firstName">Ad:</label>
+            <input
+              name="firstName"
+              type="text"
+              id="firstName"
+              v-model="firstName"
+              required
+            />
+          </div>
+          <div class="form-group">
+            <label for="lastName">Soyad:</label>
+            <input
+              name="lastName"
+              type="text"
+              id="lastName"
+              v-model="lastName"
+              required
+            />
+          </div>
+          <div class="form-group">
+            <label for="phone">Telefon:</label>
+            <input
+              name="phone"
+              type="tel"
+              id="phone"
+              v-model="phone"
+              pattern="[0-9]{10}"
+              required
+            />
+          </div>
+          <div class="form-group">
+            <label for="gender">Cinsiyet:</label>
+            <select name="gender" id="gender" v-model="gender" required>
+              <option value="">Seçiniz</option>
+              <option value="male">Erkek</option>
+              <option value="female">Kadın</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="message">Mesaj:</label>
+            <textarea
+              name="message"
+              id="message"
+              v-model="message"
+              required
+            ></textarea>
+          </div>
+          <div class="form-group">
+            <label for="email">E-posta:</label>
+            <input
+              name="email"
+              type="email"
+              id="email"
+              v-model="email"
+              required
+            />
+          </div>
+          <div class="form-group">
+            <label for="city">Şehir:</label>
+            <select name="city" id="city" v-model="city" required>
+              <option value="yok">Seçiniz</option>
+              <option value="istanbul">İstanbul</option>
+              <option value="ankara">Ankara</option>
+              <option value="izmir">İzmir</option>
+              <option value="bursa">Bursa</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <button
+              name="submit"
+              id="resetButton"
+              type="reset"
+              @click="resetForm"
+            >
+              Temizle
+            </button>
+            <button name="submit" type="submit">Gönder</button>
+          </div>
+          <div class="form-group">
+            <button
+              name="submit"
+              type="button"
+              :disabled="!formValid"
+              @click="validateForm"
+            >
+              Denetle
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>
+    <script src="script3.js"></script>
+    <script src="script2.js"></script>
+  </body>
+</html>
